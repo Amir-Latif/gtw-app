@@ -1,4 +1,5 @@
-﻿using GTW_App.Models;
+﻿using GTW_App.Data;
+using GTW_App.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,11 +7,11 @@ namespace GTW_App.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly GtwDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(GtwDbContext context)
         {
-            _logger = logger;
+            _db = context;
         }
 
         public IActionResult Index()
@@ -18,10 +19,6 @@ namespace GTW_App.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

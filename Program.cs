@@ -1,9 +1,28 @@
+using GTW_App.Data;
+using GTW_App.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+services.AddControllersWithViews();
+
+services.AddDbContext<GtwDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+
 
 var app = builder.Build();
+
+#region Database Seeding
+using (var scope = app.Services.CreateScope())
+{
+    var scropedServices = scope.ServiceProvider;
+
+    SeedData.Initialize(scropedServices);
+}
+#endregion Database Seeding
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

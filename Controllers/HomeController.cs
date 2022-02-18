@@ -1,7 +1,5 @@
 ﻿using GTW_App.Data;
-using GTW_App.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace GTW_App.Controllers
 {
@@ -29,8 +27,6 @@ namespace GTW_App.Controllers
 
         }
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View();

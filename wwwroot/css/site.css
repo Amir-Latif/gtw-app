@@ -18,9 +18,31 @@ body {
     padding: 1em;
 }
 
+/*Footer*/
+
+footer {
+    color: #fff;
+    background-color: #292b3d;
+    border-top: 2px solid rgba(0,0,0,.125);
+    padding: 1em 0 1em 1em;
+    margin-top: 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+    footer a {
+        text-decoration: underline;
+    }
+
+/*Error*/
+
 .error {
     direction: rtl;
 }
+
+/*Index*/
 
 .products {
     direction: rtl;
@@ -67,21 +89,8 @@ a {
     color: #fff;
 }
 
-footer {
-    color: #fff;
-    background-color: #292b3d;
-    border-top: 2px solid rgba(0,0,0,.125);
-    padding: 1em 0 1em 0;
-    margin-top: 2em;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
 
-    footer a {
-        text-decoration: underline;
-    }
+/*Product Page*/
 
 .product-details {
     direction: rtl;

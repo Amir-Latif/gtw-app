@@ -1,0 +1,12 @@
+﻿@model GTW_App.Models.Product
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<section class="product-details">
+    <img src="~/@Model!.Image" alt="@Model.Name" />
+    <h1>@Model!.Name</h1>
+   <h2>@Model!.Category</h2>
+   <p>@Model!.Description</p>
+</section>

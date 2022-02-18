@@ -17,6 +17,13 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\product_1.jpg" />
+    <None Include="wwwroot\images\product_2.jpg" />
+    <None Include="wwwroot\images\product_3.jpg" />
   </ItemGroup>
 
 </Project>

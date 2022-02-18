@@ -16,14 +16,24 @@ namespace GTW_App.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Products"] = _db.Products.ToArray();
+
             return View();
+        }
+        public IActionResult Product(int id)
+        {
+            var product = _db.Products.FirstOrDefault(e => e.Id == id);
+
+            if (product != null) return View(product);
+            else return RedirectToAction(nameof(Error));
+
         }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
     }
 }

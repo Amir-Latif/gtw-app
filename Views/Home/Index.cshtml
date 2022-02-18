@@ -2,7 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="products">
+    @foreach (Product product in (Product[])ViewData["Products"]!)
+    {
+        <div class="product">
+            <div class="image">
+                <img src="@product.Image" alt="@product.Name" width="400" height="300" />
+            </div>
+            <div class="product-data">
+                <div class="category">@product.Category</div>
+                <div class="name">@product.Name</div>
+                <p>@product.Description</p>
+                <div class="details"><a asp-action="Product" asp-route-id="@product.Id">التفاصيل</a></div>
+
+            </div>
+        </div>
+    }
+</section>

@@ -7,41 +7,41 @@ namespace GTW_App.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using var context = new GtwDbContext(
+            using var db = new GtwDbContext(
                 serviceProvider.GetRequiredService<
                     DbContextOptions<GtwDbContext>>());
             // Look for any products.
-            if (context.Products.Any())
+            if (db.Products.Any())
             {
                 return;   // DB has been seeded
             }
 
-            context.Products.AddRange(
+            db.Products.AddRange(
                 new Product
                 {
-                    Name = "First Product",
-                    Category = "Category 1",
-                    Description = "This is a description of the first product",
+                    Name = "المنتج الأول",
+                    Category = "تصنيف 1",
+                    Description = "هذا هو وصف المنتج الأول",
                     Image = "images/product_1.jpg"
                 },
 
                 new Product
                 {
-                    Name = "Second Product",
-                    Category = "Category 2",
-                    Description = "This is a description of the second product",
+                    Name = "المنتج الثاني",
+                    Category = "تصنيف 2",
+                    Description = "هذا هو وصف المنتج الثاني",
                     Image = "images/product_2.jpg"
                 },
 
                 new Product
                 {
-                    Name = "Third Product",
-                    Category = "Category 3",
-                    Description = "This is a description of the third product",
+                    Name = "المنتج الثالث",
+                    Category = "تصنيف 3",
+                    Description = "هذا هو وصف المنتج الثالث",
                     Image = "images/product_3.jpg"
                 }
             );
-            context.SaveChanges();
+            db.SaveChanges();
         }
     }
 }

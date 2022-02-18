@@ -8,18 +8,22 @@ var services = builder.Services;
 // Add services to the container.
 services.AddControllersWithViews();
 
+#region Adding the DB Context
 services.AddDbContext<GtwDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
-
+#endregion
 
 var app = builder.Build();
 
 #region Database Seeding
-using (var scope = app.Services.CreateScope())
+if (app.Environment.IsDevelopment())
 {
-    var scropedServices = scope.ServiceProvider;
+    using (var scope = app.Services.CreateScope())
+    {
+        var scropedServices = scope.ServiceProvider;
 
-    SeedData.Initialize(scropedServices);
+        SeedData.Initialize(scropedServices);
+    }
 }
 #endregion Database Seeding
 

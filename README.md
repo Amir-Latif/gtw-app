@@ -8,7 +8,8 @@
 1. Clone the code
 2. Make sure you have the following installed in your system (in the same order)  
 2.1. [ASP.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)    
-2.2. Entity Framework Core  
+2.2. [MS SQL Server](https://www.microsoft.com/en-au/sql-server/sql-server-downloads)  
+2.3. Entity Framework Core  
 ** If Entity Framework Core is not installed in your system, run ```dotnet tool install --global dotnet-ef```
 3. In the project root directory, run ```dotnet ef database update```
 
